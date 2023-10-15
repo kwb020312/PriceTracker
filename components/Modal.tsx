@@ -29,7 +29,6 @@ const Modal = ({ productId }: Props) => {
 
   const closeModal = () => {
     setIsOpen(false);
-    console.log(isOpen);
   };
 
   return (
