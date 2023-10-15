@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Modal = ({ productId }: Props) => {
-  let [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -27,7 +27,10 @@ const Modal = ({ productId }: Props) => {
 
   const openModal = () => setIsOpen(true);
 
-  const closeModal = () => setIsOpen(false);
+  const closeModal = () => {
+    setIsOpen(false);
+    console.log(isOpen);
+  };
 
   return (
     <>
@@ -40,7 +43,6 @@ const Modal = ({ productId }: Props) => {
           onClose={closeModal}
           open={isOpen}
           className="dialog-container"
-          onClick={openModal}
         >
           <div className="min-h-screen px-4 text-center">
             <Transition.Child
