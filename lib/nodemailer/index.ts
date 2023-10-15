@@ -26,49 +26,49 @@ export async function generateEmailBody(
 
   switch (type) {
     case Notification.WELCOME:
-      subject = `Welcome to Price Tracking for ${shortenedTitle}`;
+      subject = `${shortenedTitle} 상품을 찾아주셔서 감사합니다!`;
       body = `
         <div>
-          <h2>Welcome to PriceWise 🚀</h2>
-          <p>You are now tracking ${product.title}.</p>
-          <p>Here's an example of how you'll receive updates:</p>
+          <h2>PriceTracker 서비스를 이용해주신 것 감사드려요🚀</h2>
+          <p>찾고 있는 상품은 ${product.title}.</p>
+          <p>앞으로 어떤 방식의 메일을 받게될지 알려드려요:</p>
           <div style="border: 1px solid #ccc; padding: 10px; background-color: #f8f8f8;">
-            <h3>${product.title} is back in stock!</h3>
-            <p>We're excited to let you know that ${product.title} is now back in stock.</p>
-            <p>Don't miss out - <a href="${product.url}" target="_blank" rel="noopener noreferrer">buy it now</a>!</p>
+            <h3>${product.title} 상품이 입고되었어요!</h3>
+            <p>${product.title} 상품의 수량이 발견되어 호다닥 가져왔어요!</p>
+            <p>이번 기회 놓치지 마세요! - <a href="${product.url}" target="_blank" rel="noopener noreferrer">구매하기</a>!</p>
             <img src="https://i.ibb.co/pwFBRMC/Screenshot-2023-09-26-at-1-47-50-AM.png" alt="Product Image" style="max-width: 100%;" />
           </div>
-          <p>Stay tuned for more updates on ${product.title} and other products you're tracking.</p>
+          <p>이번 기회에 ${product.title} 상품 외의 다른 상품들도 알아보세요!</p>
         </div>
       `;
       break;
 
     case Notification.CHANGE_OF_STOCK:
-      subject = `${shortenedTitle} is now back in stock!`;
+      subject = `${shortenedTitle} 상품이 재입고되었어요!`;
       body = `
         <div>
-          <h4>Hey, ${product.title} is now restocked! Grab yours before they run out again!</h4>
-          <p>See the product <a href="${product.url}" target="_blank" rel="noopener noreferrer">here</a>.</p>
+          <h4>${product.title} 상품을 이번엔 꼭 구매해보세요!</h4>
+          <p><a href="${product.url}" target="_blank" rel="noopener noreferrer">상품 조회하기</a></p>
         </div>
       `;
       break;
 
     case Notification.LOWEST_PRICE:
-      subject = `Lowest Price Alert for ${shortenedTitle}`;
+      subject = `${shortenedTitle} 상품 이번이 가장 저렴해요!`;
       body = `
         <div>
-          <h4>Hey, ${product.title} has reached its lowest price ever!!</h4>
-          <p>Grab the product <a href="${product.url}" target="_blank" rel="noopener noreferrer">here</a> now.</p>
+          <h4>${product.title} 상품이 현재 가장 저렴한 가격에 판매되고 있어요!</h4>
+          <p><a href="${product.url}" target="_blank" rel="noopener noreferrer">상품 조회하기</a></p>
         </div>
       `;
       break;
 
     case Notification.THRESHOLD_MET:
-      subject = `Discount Alert for ${shortenedTitle}`;
+      subject = `${shortenedTitle} 상품이 지금 할인중이에요!`;
       body = `
         <div>
-          <h4>Hey, ${product.title} is now available at a discount more than ${THRESHOLD_PERCENTAGE}%!</h4>
-          <p>Grab it right away from <a href="${product.url}" target="_blank" rel="noopener noreferrer">here</a>.</p>
+          <h4>${product.title} 의 현재 가격이 ${THRESHOLD_PERCENTAGE}% 할인중이에요!</h4>
+          <p><a href="${product.url}" target="_blank" rel="noopener noreferrer">상품 조회하기</a>.</p>
         </div>
       `;
       break;
@@ -81,9 +81,10 @@ export async function generateEmailBody(
 }
 
 const transporter = nodemailer.createTransport({
-  service: "hotmail",
+  service: "naver",
+  host: "smtp.naver.com",
   auth: {
-    user: "outlook_aefff6795ab944ba@outlook.com",
+    user: "kwb020312@naver.com",
     pass: process.env.EMAIL_PASSWORD,
   },
 });
@@ -93,7 +94,7 @@ export const sendEmail = async (
   sendTo: string[]
 ) => {
   const mailOptions = {
-    from: "outlook_aefff6795ab944ba@outlook.com",
+    from: "kwb020312@naver.com",
     to: sendTo,
     html: emailContent.body,
     subject: emailContent.subject,

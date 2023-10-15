@@ -30,7 +30,8 @@ const Searchbar = () => {
 
     const isValidLink = isValidAmazonProductURL(searchPrompt);
 
-    if (!isValidLink) return alert("Please provide a valid Amazon link");
+    if (!isValidLink)
+      return alert("현재 지원되는 아마존 상품 링크를 입력해주세요.");
 
     try {
       setIsLoading(true);
@@ -49,7 +50,7 @@ const Searchbar = () => {
         type="text"
         value={searchPrompt}
         onChange={(e) => setSearchPrompt(e.target.value)}
-        placeholder="Enter product link"
+        placeholder="상품 링크를 입력해주세요."
         className="searchbar-input"
       />
       <button
@@ -57,7 +58,7 @@ const Searchbar = () => {
         className="searchbar-btn"
         disabled={searchPrompt === ""}
       >
-        {isLoading ? "Searching..." : "Search"}
+        {isLoading ? "검색중..." : "검색하기"}
       </button>
     </form>
   );

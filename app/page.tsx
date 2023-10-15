@@ -12,7 +12,7 @@ const Home = async () => {
         <div className="flex max-xl:flex-col gap-16">
           <div className="flex flex-col justify-center">
             <p className="small-text">
-              Smart Shopping Starts Here:
+              선택할 수 있는 가장 똑똑한 쇼핑:
               <Image
                 src="/assets/icons/arrow-right.svg"
                 alt="arrow-right"
@@ -20,13 +20,12 @@ const Home = async () => {
                 height={16}
               />
             </p>
-            <h1 className="head-text">
-              Unleash the Power of{" "}
-              <span className="text-primary">PriceWise</span>
+            <h1 className="head-text break-keep">
+              항상 빠른 속도로 최적의 가격을 찾아주는{" "}
+              <span className="text-primary">PriceTracer</span>
             </h1>
             <p className="mt-6">
-              Powerful, self-serve product and growth analytics to help you
-              convert, engage, and retain more.
+              검색될 수록 강력해지고 발전되며, 성장하는 분석 스크래퍼
             </p>
             <Searchbar />
           </div>
@@ -35,7 +34,7 @@ const Home = async () => {
       </section>
 
       <section className="trending-section">
-        <h2 className="section-text">Trending</h2>
+        <h2 className="section-text">인기 상품</h2>
 
         <div className="flex flex-wrap gap-x-8 gap-y-16">
           {allProducts?.map((product) => (

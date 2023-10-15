@@ -43,7 +43,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 target="_blank"
                 className="text-base text-black opacity-50"
               >
-                Visit Product
+                상품 조회하기
               </Link>
             </div>
             <div className="flex items-center gap-3">
@@ -111,42 +111,42 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                     height={16}
                   />
                   <p className="text-sm text-secondary font-semibold">
-                    {product.reviewsCount} Reviews
+                    {product.reviewsCount}개 이상의 리뷰
                   </p>
                 </div>
               </div>
 
               <p className="text-sm text-black opacity-50">
-                <span className="text-primary-green font-semibold">93%</span> of
-                buyers have recommended this.
+                <span className="text-primary-green font-semibold">93%</span> 의
+                구매자가 이 상품을 추천합니다!
               </p>
             </div>
           </div>
           <div className="my-7 flex flex-col gap-5">
             <div className="flex gap-5 flex-wrap">
               <PriceInfoCard
-                title="Current Price"
+                title="현재 구매가"
                 iconSrc="/assets/icons/price-tag.svg"
                 value={`${product.currency} ${formatNumber(
                   product.currentPrice
                 )}`}
               />
               <PriceInfoCard
-                title="Average Price"
+                title="최근 평균가"
                 iconSrc="/assets/icons/chart.svg"
                 value={`${product.currency} ${formatNumber(
                   product.averagePrice
                 )}`}
               />
               <PriceInfoCard
-                title="Highest Price"
+                title="현재 최고가"
                 iconSrc="/assets/icons/arrow-up.svg"
                 value={`${product.currency} ${formatNumber(
                   product.highestPrice
                 )}`}
               />
               <PriceInfoCard
-                title="Lowest Price"
+                title="현재 최저가"
                 iconSrc="/assets/icons/arrow-down.svg"
                 value={`${product.currency} ${formatNumber(
                   product.lowestPrice
@@ -161,7 +161,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-5">
           <h3 className="text-2xl text-secondary font-semibold">
-            Product Description
+            상품 상세설명
           </h3>
 
           <div className="flex flex-col gap-4">
@@ -177,15 +177,15 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             height={22}
           />
 
-          <Link href="/" className="text-base text-white">
-            Buy Now
+          <Link href={product.url} className="text-base text-white">
+            구입하기
           </Link>
         </button>
       </div>
 
       {similarProducts && similarProducts?.length > 0 && (
         <div className="py-14 flex flex-col gap-2 w-full">
-          <p className="section-text">Similar Products</p>
+          <p className="section-text">비슷한 상품들</p>
 
           <div className="flex flex-wrap gap-10 mt-7 w-full">
             {similarProducts.map((product) => (

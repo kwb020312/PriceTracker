@@ -35,7 +35,7 @@ const Modal = ({ productId }: Props) => {
   return (
     <>
       <button type="button" className="btn" onClick={openModal}>
-        Track
+        상품 정보 구독하기
       </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
@@ -95,13 +95,12 @@ const Modal = ({ productId }: Props) => {
                     />
                   </div>
 
-                  <h4 className="dialog-head_text">
-                    Stay updated with product pricing alerts right in your
-                    inbox!
+                  <h4 className="dialog-head_text break-keep">
+                    메일로 제품 가격 알림을 받아 최신 정보를 받아보세요!
                   </h4>
 
                   <p className="text-sm text-gray-600 mt-2">
-                    Never miss a bargain again with our timely alerts!
+                    타임 세일에 맞는 알림으로 특가를 놓치지 마세요!
                   </p>
                 </div>
 
@@ -110,7 +109,7 @@ const Modal = ({ productId }: Props) => {
                     htmlFor="email"
                     className="text-sm font-medium text-gray-700"
                   >
-                    Email address
+                    이메일 주소
                   </label>
                   <div className="dialog-input_container">
                     <Image
@@ -124,7 +123,7 @@ const Modal = ({ productId }: Props) => {
                       required
                       type="email"
                       id="email"
-                      placeholder="Enter your email address"
+                      placeholder="이메일 주소를 입력해주세요."
                       className="dialog-input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -132,7 +131,7 @@ const Modal = ({ productId }: Props) => {
                   </div>
 
                   <button type="submit" className="dialog-btn">
-                    {isSubmitting ? "Submitting..." : "Track"}
+                    {isSubmitting ? "구독중..." : "구독하기"}
                   </button>
                 </form>
               </div>
