@@ -83,10 +83,13 @@ export async function generateEmailBody(
 const transporter = nodemailer.createTransport({
   service: "naver",
   host: "smtp.naver.com",
+  secure: false,
+  requireTLS: true,
   auth: {
     user: "kwb020312@naver.com",
     pass: process.env.EMAIL_PASSWORD,
   },
+  port: 587,
 });
 
 export const sendEmail = async (
