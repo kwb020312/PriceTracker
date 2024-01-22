@@ -1,5 +1,9 @@
 # PriceTracker 😎💰
 
+## 🤣체험하기
+
+[지금 조회하러 가기!](https://price-tracer-seven.vercel.app/)
+
 ## 😀실행방법
 
 ```bash
@@ -32,12 +36,6 @@ npm run dev
 
 - [nodemailer 네이버 메일 연동](https://velog.io/@kwb020312/%EC%95%8C%EA%B2%8C%EB%90%9C-%EA%B2%83-nodemailer-%EB%84%A4%EC%9D%B4%EB%B2%84-%EC%9D%B8%EC%A6%9D%EC%99%B8%EC%97%90%EB%8F%84-%EC%B0%B8%EA%B3%A0)
 - [Vercel 배포 시 문제점](https://velog.io/@kwb020312/%EC%95%8C%EA%B2%8C%EB%90%9C-%EA%B2%83-vercel-with-mailer)
-
----
-
-## 🤣체험하기
-
-[지금 조회하러 가기!](https://price-tracer-seven.vercel.app/)
 
 ---
 
